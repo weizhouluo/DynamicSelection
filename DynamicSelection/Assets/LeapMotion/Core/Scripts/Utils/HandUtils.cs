@@ -240,7 +240,7 @@ namespace Leap.Unity {
     /// For more reliable pinch behavior, try applying hysteresis to the PinchStrength property.
     /// </summary>
     public static bool IsPinching(this Hand hand) {
-      return hand.PinchStrength > 0.8F;
+      return hand.PinchStrength > 0.9F;
     }
 
     /// <summary>

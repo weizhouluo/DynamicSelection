@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_object: {fileID: 0}
-  m_Scalar: 5
+  m_Scalar: 2
 --- !u!4 &7439153
 Transform:
   m_ObjectHideFlags: 0
