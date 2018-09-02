@@ -136,7 +136,7 @@ namespace Leap.Unity.Animation {
     }
 
     public void PlayTween(Direction tweenDirection = Direction.Forward, float afterDelay = 0F) {
-      if (_playTweenAfterDelayCoroutine != null && tweenDirection != _curDelayedDirection) {
+            if (_playTweenAfterDelayCoroutine != null && tweenDirection != _curDelayedDirection && DetectionManager.Get().GetCurrentGameObject() != null) {
         StopCoroutine(_playTweenAfterDelayCoroutine);
         _curDelayedDirection = tweenDirection;
       }
