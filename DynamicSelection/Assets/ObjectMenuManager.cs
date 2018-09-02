@@ -7,7 +7,7 @@ public class ObjectMenuManager : MonoBehaviour {
     // Use this for initialization
     void Awake()
     {
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
     void Start () {
 		
@@ -18,13 +18,5 @@ public class ObjectMenuManager : MonoBehaviour {
 		
 	}
 
-    public void PresentingthisObjectMenu()
-    {
-        this.gameObject.SetActive(true);
-    }
 
-    public void HidethisObjectMenu()
-    {
-        this.gameObject.SetActive(false);
-    }
 }
