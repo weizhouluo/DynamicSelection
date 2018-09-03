@@ -1998,7 +1998,11 @@ namespace Leap.Unity.Interaction {
         _graspedObject = newlyGraspedObject;
         Debug.Log("grasp obj name is " + _graspedObject.gameObject.name);
         DetectionManager.Get().ChangeCurrentObject(_graspedObject.gameObject);
-        OnGraspBegin();
+
+                //This is a Boardcasting
+                //This is the delegate
+        DetectionManager.Get().getCurrentObject(_graspedObject.gameObject);
+                OnGraspBegin();
 
         return true;
       }

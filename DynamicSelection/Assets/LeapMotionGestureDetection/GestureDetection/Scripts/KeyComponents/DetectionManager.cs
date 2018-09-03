@@ -69,6 +69,11 @@ partial class DetectionManager : MonoBehaviour
 
     LeapServiceProvider m_LeapService;
 
+
+    //delegate  GetCurrentObj;
+    //GetCurrentObj  getCurrentObj;
+
+
     int m_iNumberOfHands = 0;
 
     bool m_bLeftIsVisible = false;
@@ -76,7 +81,11 @@ partial class DetectionManager : MonoBehaviour
 
     GameObject m_LeftFingerCollision;
     GameObject m_RightFingerCollision;
-    
+
+    //Using Observer Pattern to get the manipulated object
+    public delegate void GetCurrentObject(GameObject currentobj);
+    public GetCurrentObject getCurrentObject; 
+
 
     public static DetectionManager Get()
     {
@@ -153,9 +162,6 @@ partial class DetectionManager : MonoBehaviour
 
         m_LeftFingerCollision.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
         m_RightFingerCollision.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-
-        m_LeftFingerCollision.AddComponent<FingerCollision>();
-        m_RightFingerCollision.AddComponent<FingerCollision>();
 
         m_LeftFingerCollision.GetComponent<SphereCollider>().isTrigger = true;
         m_RightFingerCollision.GetComponent<SphereCollider>().isTrigger = true;

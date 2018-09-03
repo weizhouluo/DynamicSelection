@@ -14,12 +14,13 @@ public class ResizeObject : MonoBehaviour
 
     void Start()
     {
+        DetectionManager.Get().getCurrentObject += GetResizeObj;
 
     }
 
     void Update()
     {
-        m_object = DetectionManager.Get().GetCurrentGameObject();
+       //m_object = DetectionManager.Get().GetCurrentGameObject();
 
         //m_object = DetectionManager.Get().GetCurrentGameObject();
         if (m_bResizing && DetectionManager.Get().IsBothHandsSet())
@@ -37,6 +38,11 @@ public class ResizeObject : MonoBehaviour
 
             m_fLastDist = fNewDistance;
         }
+    }
+
+    public void GetResizeObj(GameObject currentobject)
+    {
+        m_object = currentobject;
     }
 
     float GetDistance()

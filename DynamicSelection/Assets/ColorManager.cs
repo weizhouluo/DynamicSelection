@@ -16,16 +16,24 @@ public class ColorManager : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
-
-
-
+	void Start () 
+    {
+        DetectionManager.Get().getCurrentObject += GetColorObj;
+            //DetectionManager.Get().getCurrentObj += GetColorObj;
     }
-	
-	// Update is called once per frame
+
+
+    // Update is called once per frame
 	void Update () 
     {
+      
         m_object = DetectionManager.Get().GetCurrentGameObject();
+        rend = m_object.GetComponent<Renderer>();
+    }
+
+    public void GetColorObj(GameObject currentobject)
+    {
+        m_object = currentobject;
         rend = m_object.GetComponent<Renderer>();
     }
 

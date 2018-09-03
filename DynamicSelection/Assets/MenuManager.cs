@@ -12,6 +12,8 @@ using UnityEngine;
         void Start()
         {
 
+        DetectionManager.Get().getCurrentObject += GetMenuObj;
+
         }
 
 
@@ -20,6 +22,13 @@ using UnityEngine;
             m_object = DetectionManager.Get().GetCurrentGameObject();
             childobject = m_object.transform.GetChild(0).gameObject;
         }
+
+        public void GetMenuObj(GameObject currentobject)
+        {
+            m_object = currentobject;
+            childobject = m_object.transform.GetChild(0).gameObject;
+        }
+        
 
         public void PresentingthisObjectMenu()
         {

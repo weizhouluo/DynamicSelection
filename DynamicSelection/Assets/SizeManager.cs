@@ -21,7 +21,7 @@ public class SizeManager : MonoBehaviour {
     //  bool isOtherObject = false;
     void Start()
     {
-
+        DetectionManager.Get().getCurrentObject += GetSizeObj;
 
     }
 
@@ -78,8 +78,10 @@ public class SizeManager : MonoBehaviour {
 
     }
 
-
-
+    public void GetSizeObj(GameObject currentobject)
+    {
+        m_object = currentobject;
+    }
 
     public void ChangetoSmallSize()
     {
