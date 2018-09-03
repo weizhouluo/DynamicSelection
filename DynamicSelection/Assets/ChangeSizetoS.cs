@@ -8,7 +8,7 @@ public class ChangeSizetoS : MonoBehaviour {
 
     void Update()
     {
-        GameObject m_object = DetectionManager.Get().GetCurrentGameObject();
+        m_object = DetectionManager.Get().GetCurrentGameObject();
     }
 
 
