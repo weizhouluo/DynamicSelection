@@ -46,6 +46,13 @@ public enum EFinger
     ePinky = 4
 }
 
+public enum ManipulatedObjecSize
+{
+    Small,
+    Medium,
+    Large
+}
+
 public struct FingerExtendedDetails
 {
     public bool bThumbExtended;
