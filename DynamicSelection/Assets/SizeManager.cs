@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class SizeManager : MonoBehaviour {
 
-    GameObject m_object;
-    GameObject originalObject;
-
-    ManipulatedObjectSize currentSizeState;
-
-  //  bool isOtherObject = false;
-
     public enum ManipulatedObjectSize
     {
         Small,
         Medium,
         Large
     }
+
+    GameObject m_object;
+    GameObject originalObject;
+    ManipulatedObjectSize currentSizeState = ManipulatedObjectSize.Medium;
+
+    //  bool isOtherObject = false;
+
+  
 
 
     void Update()
@@ -46,26 +47,35 @@ public class SizeManager : MonoBehaviour {
     {
 
         if (currentSizeState != ManipulatedObjectSize.Small)
+        {
             m_object.transform.localScale = originalObject.transform.localScale * 0.5f;
+            currentSizeState = ManipulatedObjectSize.Small;
+        }
 
-        currentSizeState = ManipulatedObjectSize.Small;
+        Debug.Log("The object has been changed to Small alread");
     }
 
     public void ChangetoMediumSize()
     {
 
         if (currentSizeState != ManipulatedObjectSize.Medium)
+        {
             m_object.transform.localScale = originalObject.transform.localScale * 1.2f;
+            currentSizeState = ManipulatedObjectSize.Medium;
+        }
 
-        currentSizeState = ManipulatedObjectSize.Medium;
+        Debug.Log("The object has been changed to Medium alread");
     }
 
     public void ChangetoLargeSize()
     {
 
         if (currentSizeState != ManipulatedObjectSize.Large)
+        {
             m_object.transform.localScale = originalObject.transform.localScale * 1.5f;
+            currentSizeState = ManipulatedObjectSize.Large;
+        }
 
-        currentSizeState = ManipulatedObjectSize.Large;
+        Debug.Log("The object has been changed to Large alread");
     }
 }
