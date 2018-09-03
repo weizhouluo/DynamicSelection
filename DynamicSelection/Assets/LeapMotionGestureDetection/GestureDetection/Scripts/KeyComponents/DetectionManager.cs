@@ -46,12 +46,6 @@ public enum EFinger
     ePinky = 4
 }
 
-public enum ManipulatedObjecSize
-{
-    Small,
-    Medium,
-    Large
-}
 
 public struct FingerExtendedDetails
 {
@@ -99,12 +93,9 @@ partial class DetectionManager : MonoBehaviour
         if (m_ManipulatedObject != null)
         {
             return m_ManipulatedObject;
-            }
-        else
-        {
-            //Debug.Log("have not get a object now");
-            return null;
         }
+     
+            return null;
     }
 
     public DetectionHand GetHand(EHand a_hand)
