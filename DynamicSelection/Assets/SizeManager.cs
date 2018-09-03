@@ -31,7 +31,8 @@ public class SizeManager : MonoBehaviour {
     {
         //If the manipulated object is initializing...
         //save this object to originalObject
-        if (m_object == null)
+        if (true)
+        //if (m_object == null)
         {
             m_object = DetectionManager.Get().GetCurrentGameObject();
             originalObject = m_object;
