@@ -35,8 +35,8 @@ public class SizeManager : MonoBehaviour {
         //if (m_object == null)
         {
             m_object = DetectionManager.Get().GetCurrentGameObject();
-            originalObject = m_object;
-            originalScale = m_object.transform.localScale;
+        //   originalObject = m_object;
+        //   originalScale = m_object.transform.localScale;
         }
 
         //If the manipulated object has changed 
