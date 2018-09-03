@@ -15,6 +15,7 @@ public class ObjectTimer : MonoBehaviour {
     {
         if(timer > timeMax)
         {
+            Debug.Log("Time has exceeded than 5s");
             timer = 0;
             ClearCurrentObject();
         }
@@ -33,6 +34,7 @@ public class ObjectTimer : MonoBehaviour {
 
     void ClearCurrentObject()
     {
-
+        //DetectionManager.Get().GetCurrentGameObject();
+        DetectionManager.Get().m_ManipulatedObject = null;
     }
 }

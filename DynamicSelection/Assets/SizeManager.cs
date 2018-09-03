@@ -31,24 +31,51 @@ public class SizeManager : MonoBehaviour {
     {
         //If the manipulated object is initializing...
         //save this object to originalObject
-        if (true)
+
         //if (m_object == null)
-        {
-            m_object = DetectionManager.Get().GetCurrentGameObject();
+
+
         //   originalObject = m_object;
         //   originalScale = m_object.transform.localScale;
-        }
+
 
         //If the manipulated object has changed 
         //update this object to originalobject
+        m_object = DetectionManager.Get().GetCurrentGameObject();
+
         if (m_object != null && (m_object != originalObject))
         {
             originalScale = m_object.transform.localScale;
             originalObject = m_object;
         }
 
+        ////int a = 5;
+        ////int b = 6;
+        ////a = b;->  a.value = b.value
 
-        //originalSize = m_object.transform.localScale;
+        //GameObject c = null;  
+        //GameObject a = null;
+        //GameObject b = null;
+
+        ////c->C
+        ////a->A
+        ////b->B
+        //c = a;
+        ////c->A;
+        ////a->A;
+        ////b->B;
+
+
+
+        //a = b;//   a.address = b.address
+        ////b.camera.name = "666"; -> a.camer.name = "666";
+        ////originalSize = m_object.transform.localScale;
+
+
+        ////c->A;
+        ////a->B;
+        ////b->B;B is a address
+
     }
 
 
