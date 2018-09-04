@@ -22,7 +22,6 @@ public class SizeManager : MonoBehaviour {
     void Start()
     {
         DetectionManager.Get().getCurrentObject += GetSizeObj;
-
     }
 
 
@@ -41,7 +40,7 @@ public class SizeManager : MonoBehaviour {
 
         //If the manipulated object has changed 
         //update this object to originalobject
-        m_object = DetectionManager.Get().GetCurrentGameObject();
+        //m_object = DetectionManager.Get().GetCurrentGameObject();
 
         if (m_object != null && (m_object != originalObject))
         {

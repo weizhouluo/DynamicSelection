@@ -1997,11 +1997,18 @@ namespace Leap.Unity.Interaction {
       if (shouldGraspObject) {
         _graspedObject = newlyGraspedObject;
         Debug.Log("grasp obj name is " + _graspedObject.gameObject.name);
+                //For checking whether user has a manipualted object in hand or not
+                //if not
+                //we can not invoke the HandUI in TransformTweenBehaviour.cs
         DetectionManager.Get().ChangeCurrentObject(_graspedObject.gameObject);
 
                 //This is a Boardcasting
                 //This is the delegate
-        DetectionManager.Get().getCurrentObject(_graspedObject.gameObject);
+                if(DetectionManager.Get().getCurrentObject != null)
+                {
+                    DetectionManager.Get().getCurrentObject(_graspedObject.gameObject);
+                }
+
                 OnGraspBegin();
 
         return true;

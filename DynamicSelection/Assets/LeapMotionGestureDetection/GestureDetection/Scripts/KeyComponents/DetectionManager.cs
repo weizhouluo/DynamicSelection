@@ -97,15 +97,15 @@ partial class DetectionManager : MonoBehaviour
         m_ManipulatedObject = gameObject;
     }
 
-    public GameObject GetCurrentGameObject()
-    {
-        if (m_ManipulatedObject != null)
-        {
-            return m_ManipulatedObject;
-        }
+    //public GameObject GetCurrentGameObject()
+    //{
+    //    if (m_ManipulatedObject != null)
+    //    {
+    //        return m_ManipulatedObject;
+    //    }
      
-            return null;
-    }
+    //        return null;
+    //}
 
     public DetectionHand GetHand(EHand a_hand)
     {
