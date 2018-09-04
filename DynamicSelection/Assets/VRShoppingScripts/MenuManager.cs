@@ -19,8 +19,8 @@ using UnityEngine;
 
         void Update()
         {
-            m_object = DetectionManager.Get().GetCurrentGameObject();
-            childobject = m_object.transform.GetChild(0).gameObject;
+            //m_object = DetectionManager.Get().GetCurrentGameObject();
+            //childobject = m_object.transform.GetChild(0).gameObject;
         }
 
         public void GetMenuObj(GameObject currentobject)

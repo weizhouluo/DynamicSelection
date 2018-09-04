@@ -152,7 +152,7 @@ namespace Leap.Unity.Animation {
 
         //Check whether user has a manipualted object in hand or not
         //if not
-        //we can not invoke the HandUi
+        //we can not invoke the HandUI
     public void PlayForward() {
             if(DetectionManager.Get().m_ManipulatedObject != null) PlayTween(Direction.Forward);
     }

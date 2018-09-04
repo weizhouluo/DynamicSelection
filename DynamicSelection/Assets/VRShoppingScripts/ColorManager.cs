@@ -27,8 +27,8 @@ public class ColorManager : MonoBehaviour {
 	void Update () 
     {
       
-        m_object = DetectionManager.Get().GetCurrentGameObject();
-        rend = m_object.GetComponent<Renderer>();
+        //m_object = DetectionManager.Get().GetCurrentGameObject();
+        //rend = m_object.GetComponent<Renderer>();
     }
 
     public void GetColorObj(GameObject currentobject)

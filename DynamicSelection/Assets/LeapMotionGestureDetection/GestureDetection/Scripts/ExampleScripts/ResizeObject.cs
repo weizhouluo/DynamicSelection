@@ -22,7 +22,6 @@ public class ResizeObject : MonoBehaviour
     {
        //m_object = DetectionManager.Get().GetCurrentGameObject();
 
-        //m_object = DetectionManager.Get().GetCurrentGameObject();
         if (m_bResizing && DetectionManager.Get().IsBothHandsSet())
         {
             float fNewDistance = GetDistance();
