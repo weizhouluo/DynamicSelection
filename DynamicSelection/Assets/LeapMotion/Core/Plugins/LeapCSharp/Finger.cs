@@ -124,6 +124,10 @@ namespace Leap {
     /// </summary>
     public Vector TipPosition;
 
+    /// <summary>
+    /// To configure the SDK, we add a the TipVelocity which belongs to old version SDK
+    /// Jet
+    /// </summary>
     public Vector TipVelocity;
 
     /// <summary>
