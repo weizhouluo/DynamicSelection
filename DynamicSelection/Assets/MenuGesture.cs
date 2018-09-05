@@ -92,6 +92,7 @@ public class MenuGesture : GestureBase
     {
         bool bFound = false;
         EDirection currentDirection = GetClosestDirection(ref bFound);
+        IsFist();
 
         if (bFound && m_IsFist && m_CoolDownLeft > 0.0f)
         {
