@@ -97,6 +97,7 @@ public class MenuGesture : GestureBase
                 m_IsFist = true;
                 alreadyFist = true;
                 //Debug.Log("Detect the first phase of MenuGesture-Fist");
+                m_IsHandAllExtended = false;
                 return;
             }
             //return DetectionManager.Get().GetHand(m_Hand).IsClosed(m_ClosedPercentage);
@@ -114,6 +115,7 @@ public class MenuGesture : GestureBase
             {
                 m_IsHandAllExtended = true;
                 Debug.Log("success");
+                alreadyFist = false;
                 //reset
                 return;
             }
