@@ -7,6 +7,7 @@ public class MenuGesture : GestureBase
     public EHand m_Hand;
     public EHandAxis m_HandAxis;
     public EDirection m_Direction;
+    public bool alreadyFist = false;
 
     //Sequence Gesture
     public float m_TimeRange = 2f;
@@ -94,7 +95,8 @@ public class MenuGesture : GestureBase
             {
                 m_CoolDownLeft = m_TimeRange;
                 m_IsFist = true;
-                Debug.Log("Detect the first phase of MenuGesture-Fist");
+                alreadyFist = true;
+                //Debug.Log("Detect the first phase of MenuGesture-Fist");
                 return;
             }
             //return DetectionManager.Get().GetHand(m_Hand).IsClosed(m_ClosedPercentage);
@@ -111,6 +113,8 @@ public class MenuGesture : GestureBase
             if(detectHand.CheckWithDetails(m_GestureDetail))
             {
                 m_IsHandAllExtended = true;
+                Debug.Log("success");
+                //reset
                 return;
             }
         }
@@ -126,8 +130,7 @@ public class MenuGesture : GestureBase
         bool bFound = false;
         EDirection currentDirection = GetClosestDirection(ref bFound);
 
-        IsFist();
-
+<<<<<<< HEAD
         if (bFound && m_IsHandAllExtended && m_IsFist && m_CoolDownLeft > 0.0f)
         {
             if(currentDirection == m_Direction)
@@ -143,12 +146,31 @@ public class MenuGesture : GestureBase
             m_IsHandAllExtended = false;
             m_CoolDownLeft = 0.0f;
             return false;
+=======
+        if (!alreadyFist){
+            IsFist();
+        }else{
+            if (bFound && m_CoolDownLeft > 0.0f)
+            {
+                if (currentDirection == m_Direction)
+                {
 
+                    IsHandAllExtended();
+                }
+>>>>>>> 27aa200c2168dda28b70d542d45a187f97b1231b
+
+            }
         }
+<<<<<<< HEAD
         m_IsFist = false;
         m_IsHandAllExtended = false;
         m_CoolDownLeft = 0.0f;
         return false;
+=======
+
+        return m_IsHandAllExtended;
+        //IsFist();
+>>>>>>> 27aa200c2168dda28b70d542d45a187f97b1231b
     }
 
 
