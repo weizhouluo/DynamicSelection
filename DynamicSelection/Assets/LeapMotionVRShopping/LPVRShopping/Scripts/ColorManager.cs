@@ -12,11 +12,14 @@ public class ColorManager : MonoBehaviour {
     }
 
     GameObject m_object;
+    //public GameObject childobject;
+
     Renderer rend;
+  
 
 
-	// Use this for initialization
-	void Start () 
+    // Use this for initialization
+    void Start () 
     {
         DetectionManager.Get().getCurrentObject += GetColorObj;
             //DetectionManager.Get().getCurrentObj += GetColorObj;
@@ -35,6 +38,9 @@ public class ColorManager : MonoBehaviour {
     {
         m_object = currentobject;
         rend = m_object.GetComponent<Renderer>();
+
+        //childobject = m_object.transform.GetChild(0).gameObject;
+        //rend = childobject.GetComponent<Renderer>();
     }
 
     public void ChangetoRedColor()
