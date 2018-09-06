@@ -118,7 +118,7 @@ public class MenuGesture : GestureBase
                 return;
             }
         }
-        m_IsHandAllExtended = false;
+        //m_IsHandAllExtended = false;
     }
 
     //Phase 2 -- Hand open upwards
@@ -130,23 +130,6 @@ public class MenuGesture : GestureBase
         bool bFound = false;
         EDirection currentDirection = GetClosestDirection(ref bFound);
 
-<<<<<<< HEAD
-        if (bFound && m_IsHandAllExtended && m_IsFist && m_CoolDownLeft > 0.0f)
-        {
-            if(currentDirection == m_Direction)
-            {
-                m_IsFist = false;
-                m_IsHandAllExtended = false;
-                m_CoolDownLeft = 0.0f;
-                Debug.Log("Detect the second phase of MenuGesture-HandOn");
-                return true;
-            }
-
-            m_IsFist = false;
-            m_IsHandAllExtended = false;
-            m_CoolDownLeft = 0.0f;
-            return false;
-=======
         if (!alreadyFist){
             IsFist();
         }else{
@@ -157,20 +140,12 @@ public class MenuGesture : GestureBase
 
                     IsHandAllExtended();
                 }
->>>>>>> 27aa200c2168dda28b70d542d45a187f97b1231b
 
             }
         }
-<<<<<<< HEAD
-        m_IsFist = false;
-        m_IsHandAllExtended = false;
-        m_CoolDownLeft = 0.0f;
-        return false;
-=======
 
         return m_IsHandAllExtended;
         //IsFist();
->>>>>>> 27aa200c2168dda28b70d542d45a187f97b1231b
     }
 
 
