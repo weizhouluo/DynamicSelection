@@ -7,6 +7,7 @@ public class MenuGesture : GestureBase
     public EHand m_Hand;
     public EHandAxis m_HandAxis;
     public EDirection m_Direction;
+    public bool alreadyFist = false;
 
     //Sequence Gesture
     public float m_TimeRange = 2f;
@@ -94,7 +95,8 @@ public class MenuGesture : GestureBase
             {
                 m_CoolDownLeft = m_TimeRange;
                 m_IsFist = true;
-                Debug.Log("Detect the first phase of MenuGesture-Fist");
+                alreadyFist = true;
+                //Debug.Log("Detect the first phase of MenuGesture-Fist");
                 return;
             }
             //return DetectionManager.Get().GetHand(m_Hand).IsClosed(m_ClosedPercentage);
@@ -111,6 +113,8 @@ public class MenuGesture : GestureBase
             if(detectHand.CheckWithDetails(m_GestureDetail))
             {
                 m_IsHandAllExtended = true;
+                Debug.Log("success");
+                //reset
                 return;
             }
         }
@@ -126,23 +130,22 @@ public class MenuGesture : GestureBase
         bool bFound = false;
         EDirection currentDirection = GetClosestDirection(ref bFound);
 
-        IsFist();
-
-        if (bFound && m_IsFist && m_CoolDownLeft > 0.0f)
-        {
-            if(currentDirection == m_Direction)
+        if (!alreadyFist){
+            IsFist();
+        }else{
+            if (bFound && m_CoolDownLeft > 0.0f)
             {
-                m_IsFist = false;
-                Debug.Log("Detect the second phase of MenuGesture-HandOn");
-                return true;
+                if (currentDirection == m_Direction)
+                {
+
+                    IsHandAllExtended();
+                }
+
             }
-
-            m_IsFist = false;
-            return false;
-
         }
-        m_IsFist = false;
-        return false;
+
+        return m_IsHandAllExtended;
+        //IsFist();
     }
 
 
