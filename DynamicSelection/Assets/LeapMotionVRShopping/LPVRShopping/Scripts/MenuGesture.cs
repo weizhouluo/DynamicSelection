@@ -7,7 +7,7 @@ public class MenuGesture : GestureBase
     public EHand m_Hand;
     public EHandAxis m_HandAxis;
     public EDirection m_Direction;
-    public bool alreadyFist = false;
+    private bool alreadyFist = false;
 
     //Sequence Gesture
     public float m_TimeRange = 2f;
@@ -17,7 +17,7 @@ public class MenuGesture : GestureBase
     public float m_ClosedPercentage = 0.6f;
 
     float m_CoolDownLeft = 0.0f;
-    bool m_IsFist = false;
+    //bool m_IsFist = false;
     bool m_IsHandAllExtended = false;
 
 
@@ -106,7 +106,7 @@ public class MenuGesture : GestureBase
         return result;
     }
 
-    void IsHandAllExtended()
+    bool IsHandAllExtended()
     {
         DetectionManager.DetectionHand detectHand = DetectionManager.Get().GetHand(m_Hand);
     	bool result = false;
