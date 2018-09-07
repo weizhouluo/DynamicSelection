@@ -7,7 +7,7 @@ public class MenuGesture : GestureBase
     public EHand m_Hand;
     public EHandAxis m_HandAxis;
     public EDirection m_Direction;
-    private bool alreadyFist = false;
+    public bool alreadyFist = false;
 
     //Sequence Gesture
     public float m_TimeRange = 2f;
@@ -17,7 +17,7 @@ public class MenuGesture : GestureBase
     public float m_ClosedPercentage = 0.6f;
 
     float m_CoolDownLeft = 0.0f;
-    //bool m_IsFist = false;
+    bool m_IsFist = false;
     bool m_IsHandAllExtended = false;
 
 
@@ -87,29 +87,27 @@ public class MenuGesture : GestureBase
 
     //Phase 1 -- Fist hand
     //Decide whether is Fist or not
-    bool IsFist()
+    void IsFist()
     {
-    	bool result = false;
         if (DetectionManager.Get().IsHandSet(m_Hand))
         {
             if(DetectionManager.Get().GetHand(m_Hand).IsClosed(m_ClosedPercentage)) 
             {
                 m_CoolDownLeft = m_TimeRange;
-                //m_IsFist = true;
+                m_IsFist = true;
                 alreadyFist = true;
                 //Debug.Log("Detect the first phase of MenuGesture-Fist");
                 m_IsHandAllExtended = false;
-                result = true;
+                return;
             }
             //return DetectionManager.Get().GetHand(m_Hand).IsClosed(m_ClosedPercentage);
         }
-        return result;
+
     }
 
-    bool IsHandAllExtended()
+    void IsHandAllExtended()
     {
         DetectionManager.DetectionHand detectHand = DetectionManager.Get().GetHand(m_Hand);
-    	bool result = false;
 
         if (detectHand.IsSet())
         {
@@ -119,10 +117,9 @@ public class MenuGesture : GestureBase
                 Debug.Log("success");
                 alreadyFist = false;
                 //reset
-                result = true;
+                return;
             }
         }
-        return result;
         //m_IsHandAllExtended = false;
     }
 
@@ -136,14 +133,22 @@ public class MenuGesture : GestureBase
         EDirection currentDirection = GetClosestDirection(ref bFound);
 
         if (!alreadyFist){
-            return IsFist();
+            IsFist();
         }else{
-            if (bFound && m_CoolDownLeft > 0.0f && currentDirection == m_Direction)
+            if (bFound && m_CoolDownLeft > 0.0f)
             {
-                return IsHandAllExtended();
+                if (currentDirection == m_Direction)
+                {
+
+                    IsHandAllExtended();
+                }
+
             }
         }
-        return false;
+
+        return m_IsHandAllExtended;
         //IsFist();
     }
+
+
 }
