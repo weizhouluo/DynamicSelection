@@ -7,7 +7,7 @@ public class MenuGesture : GestureBase
     public EHand m_Hand;
     public EHandAxis m_HandAxis;
     public EDirection m_Direction;
-    public bool alreadyFist = false;
+    bool alreadyFist = false;
 
     //Sequence Gesture
     public float m_TimeRange = 2f;
@@ -20,7 +20,7 @@ public class MenuGesture : GestureBase
     bool m_IsFist = false;
     bool m_IsHandAllExtended = false;
 
-    public MenuManager m_menumanager;
+    //public MenuManager m_menumanager;
 
 
 
@@ -122,7 +122,7 @@ public class MenuGesture : GestureBase
             {
                 m_IsHandAllExtended = true;
                 Debug.Log("success");
-                m_menumanager.PresentingthisObjectMenu();
+                //m_menumanager.PresentingthisObjectMenu();
                 alreadyFist = false;
                 //reset
                 return;
