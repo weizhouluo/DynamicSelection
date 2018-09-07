@@ -49,6 +49,9 @@ public class MenuGesture : GestureBase
             if (m_CoolDownLeft < 0.0f)
             {
                 m_CoolDownLeft = 0.0f;
+                alreadyFist = false;
+                m_IsHandAllExtended = false;
+
             }
         }
 
