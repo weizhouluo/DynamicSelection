@@ -87,27 +87,29 @@ public class MenuGesture : GestureBase
 
     //Phase 1 -- Fist hand
     //Decide whether is Fist or not
-    void IsFist()
+    bool IsFist()
     {
+    	bool result = false;
         if (DetectionManager.Get().IsHandSet(m_Hand))
         {
             if(DetectionManager.Get().GetHand(m_Hand).IsClosed(m_ClosedPercentage)) 
             {
                 m_CoolDownLeft = m_TimeRange;
-                m_IsFist = true;
+                //m_IsFist = true;
                 alreadyFist = true;
                 //Debug.Log("Detect the first phase of MenuGesture-Fist");
                 m_IsHandAllExtended = false;
-                return;
+                result = true;
             }
             //return DetectionManager.Get().GetHand(m_Hand).IsClosed(m_ClosedPercentage);
         }
-
+        return result;
     }
 
     void IsHandAllExtended()
     {
         DetectionManager.DetectionHand detectHand = DetectionManager.Get().GetHand(m_Hand);
+    	bool result = false;
 
         if (detectHand.IsSet())
         {
@@ -117,9 +119,10 @@ public class MenuGesture : GestureBase
                 Debug.Log("success");
                 alreadyFist = false;
                 //reset
-                return;
+                result = true;
             }
         }
+        return result;
         //m_IsHandAllExtended = false;
     }
 
@@ -133,22 +136,14 @@ public class MenuGesture : GestureBase
         EDirection currentDirection = GetClosestDirection(ref bFound);
 
         if (!alreadyFist){
-            IsFist();
+            return IsFist();
         }else{
-            if (bFound && m_CoolDownLeft > 0.0f)
+            if (bFound && m_CoolDownLeft > 0.0f && currentDirection == m_Direction)
             {
-                if (currentDirection == m_Direction)
-                {
-
-                    IsHandAllExtended();
-                }
-
+                return IsHandAllExtended();
             }
         }
-
-        return m_IsHandAllExtended;
+        return false;
         //IsFist();
     }
-
-
 }
