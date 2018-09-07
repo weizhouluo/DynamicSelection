@@ -20,6 +20,10 @@ public class MenuGesture : GestureBase
     bool m_IsFist = false;
     bool m_IsHandAllExtended = false;
 
+    public MenuManager m_menumanager;
+
+
+
 
     Dictionary<EDirection, Vector3> m_DirectionMap = new Dictionary<EDirection, Vector3>();
 
@@ -118,6 +122,7 @@ public class MenuGesture : GestureBase
             {
                 m_IsHandAllExtended = true;
                 Debug.Log("success");
+                m_menumanager.PresentingthisObjectMenu();
                 alreadyFist = false;
                 //reset
                 return;
