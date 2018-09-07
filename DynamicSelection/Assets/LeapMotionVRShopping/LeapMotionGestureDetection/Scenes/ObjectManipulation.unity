@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43700153, g: 0.48469114, b: 0.5649519, a: 1}
+  m_IndirectSpecularColor: {r: 0.4370015, g: 0.48469138, b: 0.56495243, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4219,7 +4219,7 @@ Prefab:
     - target: {fileID: 114277816490939538, guid: 4dca2a2ad39db4e32879d073f3c5a773,
         type: 2}
       propertyPath: OnGestureStart.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4570927007033784, guid: 4dca2a2ad39db4e32879d073f3c5a773, type: 2}
       propertyPath: m_LocalPosition.x
@@ -4270,7 +4270,7 @@ Prefab:
     - target: {fileID: 114277816490939538, guid: 4dca2a2ad39db4e32879d073f3c5a773,
         type: 2}
       propertyPath: OnGestureStart.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114277816490939538, guid: 4dca2a2ad39db4e32879d073f3c5a773,
         type: 2}
@@ -4280,7 +4280,7 @@ Prefab:
     - target: {fileID: 114277816490939538, guid: 4dca2a2ad39db4e32879d073f3c5a773,
         type: 2}
       propertyPath: OnGestureStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: PresentingthisObjectMenu
       objectReference: {fileID: 0}
     - target: {fileID: 114277816490939538, guid: 4dca2a2ad39db4e32879d073f3c5a773,
         type: 2}
@@ -4317,6 +4317,11 @@ Prefab:
       propertyPath: m_menumanager
       value: 
       objectReference: {fileID: 1209826052}
+    - target: {fileID: 114936731848471432, guid: 4dca2a2ad39db4e32879d073f3c5a773,
+        type: 2}
+      propertyPath: m_Direction
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4dca2a2ad39db4e32879d073f3c5a773, type: 2}
   m_IsPrefabParent: 0
