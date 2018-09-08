@@ -52,6 +52,8 @@ public class MenuGesture : GestureBase
             m_CoolDownLeft -= Time.deltaTime;
             if (m_CoolDownLeft < 0.0f)
             {
+                //Reset
+                //This is a new test text
                 m_CoolDownLeft = 0.0f;
                 alreadyFist = false;
                 m_IsHandAllExtended = false;
